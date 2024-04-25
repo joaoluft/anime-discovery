@@ -44,7 +44,7 @@ export const RightContainer = styled.div`
   padding: 64px 0 42px 0;
 `;
 
-export const FieldContainer = styled.div`
+export const FieldForm = styled.form`
   display: flex;
   flex-direction: column;
   gap: 24px;

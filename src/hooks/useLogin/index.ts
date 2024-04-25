@@ -1,7 +1,14 @@
 import { useEffect, useState } from "react";
-
+import { useLocalStorage } from "../useLocalStorage";
 export const useLogin = () => {
-  const [background, setBackground] = useState(null);
+  const {setLocalStorage} = useLocalStorage();
+  const [background, setBackground] = useState('');
+  const [name, setName] = useState('');
+
+  const loginFormHandler = (event: any) => {
+    event.preventDefault();
+    setLocalStorage('user', name);
+  };
 
   useEffect(() => {
     import(
@@ -13,5 +20,8 @@ export const useLogin = () => {
 
   return {
     background,
+    name, 
+    setName,
+    loginFormHandler
   };
 };
