@@ -7,14 +7,14 @@ import {
   Paragraph,
   LeftContainer,
   LeftBackground,
-  FieldContainer,
+  FieldForm,
   PoweredBy,
 } from "./styles";
 import rocketLogo from "./../../assets/rocket.png";
 import { useLogin } from "../../hooks/useLogin";
 
 export const Login = () => {
-  const { background } = useLogin();
+  const { background, name, setName, loginFormHandler } = useLogin();
 
   return (
     <Main>
@@ -22,35 +22,17 @@ export const Login = () => {
         <LeftBackground src={background} />
       </LeftContainer>
       <RightContainer>
-        <FieldContainer>
+        <FieldForm onSubmit={(e) => loginFormHandler(e)}>
           <Title>Anime Discovery</Title>
-          <LoginTextField></LoginTextField>
-          <LoginButton>Continuar</LoginButton>
+          <LoginTextField value={name} onChange={(e) => setName(e.target.value)}></LoginTextField>
+          <LoginButton type="submit">Continuar</LoginButton>
           <Paragraph>
             *Para acessar a lista de animes insira seu nome para continuar
           </Paragraph>
-        </FieldContainer>
+        </FieldForm>
 
         <PoweredBy src={rocketLogo} />
       </RightContainer>
     </Main>
   );
 };
-
-/* 
-
-<Box
-      component="section"
-      sx={{
-        marginTop: 8,
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-      }}
-    >
-      <Typography variant="h1" component="h2">
-        Anime Discovery
-      </Typography>
-    </Box>
-
-*/
