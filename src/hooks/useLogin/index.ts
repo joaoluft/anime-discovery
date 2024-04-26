@@ -1,13 +1,21 @@
 import { useEffect, useState } from "react";
 import { useLocalStorage } from "../useLocalStorage";
+import { useNavigate } from "react-router-dom";
 export const useLogin = () => {
-  const {setLocalStorage} = useLocalStorage();
+  const { setLocalStorage } = useLocalStorage();
   const [background, setBackground] = useState('');
   const [name, setName] = useState('');
+  const navigate = useNavigate();
 
-  const loginFormHandler = (event: any) => {
-    event.preventDefault();
-    setLocalStorage('user', name);
+  const loginFormHandler = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    setLocalStorage('user', {
+      name,
+      favs: []
+    });
+
+    navigate("/");
   };
 
   useEffect(() => {
@@ -20,7 +28,7 @@ export const useLogin = () => {
 
   return {
     background,
-    name, 
+    name,
     setName,
     loginFormHandler
   };
