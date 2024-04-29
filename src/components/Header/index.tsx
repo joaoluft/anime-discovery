@@ -4,11 +4,11 @@ import { pink } from "@mui/material/colors";
 import { useLocalStorage } from "./../../hooks/useLocalStorage";
 import { useNavigate } from "react-router-dom";
 
-type HProps = {
+type HeaderProps = {
   name: string;
 };
 
-export const Header: React.FC<HProps> = (props) => {
+export const Header = ({ name }: HeaderProps) => {
   const { deleteLocalStorage } = useLocalStorage();
   const navigate = useNavigate();
 
@@ -22,7 +22,7 @@ export const Header: React.FC<HProps> = (props) => {
       <Title>Anime Discovery</Title>
       <UserContainer>
         <Avatar sx={{ bgcolor: pink[500], textTransform: "uppercase" }}>
-          {props.name}
+          {name}
         </Avatar>
         <ExitIcon onClick={exitHandler} />
       </UserContainer>
