@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 export const useHomepage = () => {
   const { getLocalStorage } = useLocalStorage();
-  const [user] = useState(getLocalStorage('user'));
+  const [user] = useState(getLocalStorage("user"));
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -19,6 +19,6 @@ export const useHomepage = () => {
 
   return {
     getUserAlias,
-    user
+    user,
   };
 };
