@@ -12,6 +12,7 @@ export const Container = styled.div`
   padding: 0 0 8px 0;
   font-family: 'Roboto';
   width: 200px;
+  cursor: pointer;
 `
 
 export const Title = styled.h1`
@@ -39,6 +40,6 @@ export const Rank = styled.span`
   color: #ffff;
   font-weight: 900;
   background-color: #de8500;
-  padding: 9.5px 8px 8px 8px;
-  border-radius: 50%;
+  padding: 8px;
+  border-radius: 6px;
 `
