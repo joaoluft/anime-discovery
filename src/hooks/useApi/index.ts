@@ -5,21 +5,21 @@ export const useApi = () => {
         baseURL: "https://api.jikan.moe/v4/",
     });
 
-    const getAnimeList = async () => {
-        return await api.get("/top/anime");
+    const getAnimeList = async (page: number) => {
+        return await api.get(`/top/anime?page=${page}`);
     };
 
     const getAnimeDetails = async (id: number) => {
-        return await api.get(`/anime/${id}`);;
+        return await api.get(`/anime/${id}`);
     }
 
-    const getCharacter = async (id: number) => {
-        return await api.get(`/characters/${id}`);
+    const getCharacters = async (id: number) => {
+        return await api.get(`/anime/${id}/characters`);
     }
 
     return {
         getAnimeList,
         getAnimeDetails,
-        getCharacter
+        getCharacters
     };
 };

@@ -1,18 +1,14 @@
 import { useAnimeList } from "../../hooks/useAnimeList";
-import { Anime } from "../Anime";
+import { Pagination } from "../Pagination";
 import { Container } from "./styles";
+import { CircularProgress } from "@mui/material";
 export const AnimeList = () => {
-  const { animeList } = useAnimeList();
-  console.log(animeList);
-  const renderAnimes = () => {
-    return animeList.data.map((anime) => (
-      <Anime
-        image={anime.images.webp.image_url}
-        rank={anime.rank}
-        name={anime.title}
-      />
-    ));
-  };
+  const { animeList, renderAnimes, loaded, setPage } = useAnimeList();
 
-  return <Container>{renderAnimes()}</Container>;
+  return (
+    <>
+      <Container>{loaded ? renderAnimes() : <CircularProgress />}</Container>
+      <Pagination total={animeList.total} setPage={setPage} />
+    </>
+  );
 };

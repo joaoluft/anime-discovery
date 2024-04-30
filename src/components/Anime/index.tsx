@@ -1,15 +1,16 @@
 import { Container, Title, Image, Rank } from "./styles";
 
 type AnimeProps = {
-  image: string;
+  thumbnail: string;
   rank: number;
   name: string;
+  onClick: () => void;
 };
 
-export const Anime = ({image, rank, name}: AnimeProps) => {
+export const Anime = ({thumbnail, rank, name, onClick}: AnimeProps) => {
   return (
-    <Container>
-      <Image src={image} alt={name} />
+    <Container onClick={onClick}>
+      <Image src={thumbnail} alt={name} />
       <Rank>#{rank}</Rank>
       <Title>{name}</Title>
     </Container>
