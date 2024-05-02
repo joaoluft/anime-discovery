@@ -19,11 +19,7 @@ export const useLogin = () => {
   };
 
   useEffect(() => {
-    import(
-      /* @vite-ignore */ `./../../assets/Backgrounds/${Math.floor(Math.random() * 5) + 1}.webp`
-    ).then((module) => {
-      setBackground(module.default);
-    });
+    setBackground(`/Backgrounds/${Math.floor(Math.random() * 5) + 1}.webp`);
   }, []);
 
   return {

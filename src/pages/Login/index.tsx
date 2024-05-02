@@ -11,7 +11,7 @@ import {
   PoweredBy,
 } from "./styles";
 import rocketLogo from "./../../assets/rocket.png";
-import { useLogin } from "./../../hooks/useLogin";
+import { useLogin } from "../../hooks/useLogin";
 
 export const Login = () => {
   const { background, name, setName, loginFormHandler } = useLogin();

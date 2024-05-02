@@ -1,8 +1,8 @@
-import { Login } from "./Pages/Login";
-import { Homepage } from "./Pages/Homepage";
+import { Login } from "./pages/Login";
+import { Homepage } from "./pages/Homepage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { GlobalStyles } from "./themes/GlobalStyles";
-import { AnimeDetails } from "./Pages/AnimeDetails";
+import { AnimeDetails } from "./pages/AnimeDetails";
 
 export const App = () => {
   return (
