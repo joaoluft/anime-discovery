@@ -12,7 +12,7 @@ export const CharacterList = ({ id }: CharactersProps) => {
 
   return (
     <>
-      <Container>{loaded ? renderCharacterList() : <CircularProgress />}</Container>
+      <Container>{loaded ? renderCharacterList() : <CircularProgress color="secondary" />}</Container>
       <Button onClick={() => setViewMore(prevViewMore => !prevViewMore)} color="secondary" variant="contained" disableElevation>
         {viewMore ? "Ver menos personagens" : "Ver todos personagens"}
       </Button>

@@ -66,7 +66,7 @@ export const useAnimeList = () => {
   };
 
   const renderAnimes = () => {
-    if (animeList?.data?.length === 0 || !animeList) return <NotFoundAnimes />
+    if (animeList?.data?.length === 0 && !animeList) return <NotFoundAnimes />
     return animeList?.data?.map((anime) => (
       <AnimeComponent
         key={anime.mal_id}
@@ -81,8 +81,7 @@ export const useAnimeList = () => {
 
   useEffect(() => {
     const pageParam = getParam("page");
-    console.log("teste");
-    console.log(filters);
+
     if (pageParam)
       return fetchAnimesList(
         Number(pageParam),
