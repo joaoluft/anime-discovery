@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
 import { useLocalStorage } from "../useLocalStorage";
 import { useNavigate } from "react-router-dom";
-import { User } from "../../types/User";
 
 export const useHomepage = () => {
   const { getLocalStorage } = useLocalStorage();
-  const [user] = useState<User>(getLocalStorage("user"));
+  const [user] = useState(getLocalStorage("user"));
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (user.name) return;
-    navigate("/login");
-  }, [user]);
+    if (!user || !user.name) {
+      navigate("/login");
+    }
+  }, [user, navigate]);
 
   const getUserAlias = (name: string) => {
     const username = name.split(" ");

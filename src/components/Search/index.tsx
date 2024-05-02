@@ -6,13 +6,12 @@ export const Search = () => {
 
   return (
     <Autocomplete
-      color="secondary"
-      disablePortal
       options={result}
       onChange={(_, v: any) => selectOptionHandler(v.value)}
       noOptionsText="Nenhum anime encontrado"
       renderInput={(params) => (
         <TextField
+          color="secondary"
           onChange={searchAnimeHandler}
           {...params}
           label="Buscar por títulos"
