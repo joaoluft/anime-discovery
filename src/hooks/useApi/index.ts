@@ -5,8 +5,8 @@ export const useApi = () => {
         baseURL: "https://api.jikan.moe/v4/",
     });
 
-    const getAnimeList = async (page: number) => {
-        return await api.get(`/top/anime?page=${page}`);
+    const getAnimeList = async (page: number, type: string, order: string, rating: string) => {
+        return await api.get(`/top/anime?page=${page}&type=${type}&filter=${order}&rating=${rating}`);
     };
 
     const getAnimeDetails = async (id: number) => {

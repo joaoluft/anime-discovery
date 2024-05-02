@@ -14,6 +14,7 @@ export const Container = styled.div`
   padding: 0 0 8px 0;
   font-family: 'Roboto';
   width: 200px;
+  height: fit-content;
 
   @media (max-width: 768px) {
     width: 150px;

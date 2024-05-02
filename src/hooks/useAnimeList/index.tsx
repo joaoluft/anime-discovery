@@ -1,32 +1,44 @@
 import { useApi } from "../useApi";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Anime } from "../../types/Anime";
 import { Anime as AnimeComponent } from "../../components/Anime";
 import { useParameters } from "../useParameters";
 import { useNavigate } from "react-router-dom";
 import { Animes } from "../../types/Animes";
+import { FilterContext } from "../../contexts/FilterContext";
+import { NotFoundAnimes } from "../../components/NotFoundAnimes";
 
 export const useAnimeList = () => {
+  const { getParam, setParam } = useParameters();
+
   const [animeList, setAnimeList] = useState<Animes>({
     data: [],
     pagination: 1,
-    next: true,
     total: 0, // Total de páginas
   });
 
-  const navigate = useNavigate();
+  const { filters } = useContext(FilterContext);
 
-  const { getParam, setParam } = useParameters();
+  const navigate = useNavigate();
 
   const [loaded, setLoaded] = useState<boolean>(false);
 
   const { getAnimeList } = useApi();
 
-  const fetchAnimesList = (pagination: number) => {
-    getAnimeList(pagination)
+  const fetchAnimesList = (
+    pagination: number,
+    type: string,
+    order: string,
+    rating: string
+  ) => {
+    const typeParam = getParam("type") || type;
+    const orderParam = getParam("order") || order;
+    const ratingParam = getParam("rating") || rating;
+
+    getAnimeList(pagination, typeParam, orderParam, ratingParam)
       .then((res) => {
         setLoaded(true);
-        const listedAnimes = res?.data?.data.map((animeData: Anime) => ({
+        const listedAnimes = res?.data?.data?.map((animeData: Anime) => ({
           mal_id: animeData.mal_id,
           thumbnail: animeData.images.webp.image_url,
           title: animeData.title,
@@ -48,13 +60,14 @@ export const useAnimeList = () => {
   };
 
   const setPage = (page: number) => {
-    fetchAnimesList(page);
+    fetchAnimesList(page, filters.type, filters.order, filters.rating);
     setAnimeList((prevList) => ({ ...prevList, pagination: page }));
     setLoaded(false);
   };
 
   const renderAnimes = () => {
-    return animeList?.data.map((anime) => (
+    if (animeList?.data?.length === 0 || !animeList) return <NotFoundAnimes />
+    return animeList?.data?.map((anime) => (
       <AnimeComponent
         key={anime.mal_id}
         id={anime.mal_id}
@@ -68,10 +81,24 @@ export const useAnimeList = () => {
 
   useEffect(() => {
     const pageParam = getParam("page");
-    if (pageParam !== null) return fetchAnimesList(Number(pageParam));
-    fetchAnimesList(animeList.pagination);
+    console.log("teste");
+    console.log(filters);
+    if (pageParam)
+      return fetchAnimesList(
+        Number(pageParam),
+        filters.type,
+        filters.order,
+        filters.rating
+      );
+
+    fetchAnimesList(
+      animeList.pagination,
+      filters.type,
+      filters.order,
+      filters.rating
+    );
     setParam("page", "1");
-  }, [animeList.pagination]);
+  }, [animeList.pagination, filters]);
 
   return {
     loaded,
