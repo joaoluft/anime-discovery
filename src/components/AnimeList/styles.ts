@@ -6,7 +6,7 @@ export const Container = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   min-height: 100vh;
-  padding: 32px 0;
+  padding: 24px 0;
 
   @media (max-width: 768px) {
     padding: 32px 8px;

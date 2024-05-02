@@ -7,7 +7,7 @@ export const AnimeList = () => {
 
   return (
     <>
-      <Container>{loaded ? renderAnimes() : <CircularProgress />}</Container>
+      <Container>{loaded ? renderAnimes() : <CircularProgress color="secondary" />}</Container>
       <Pagination total={animeList.total} setPage={setPage} />
     </>
   );
