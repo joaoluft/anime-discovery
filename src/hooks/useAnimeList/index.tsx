@@ -4,13 +4,7 @@ import { Anime } from "../../types/Anime";
 import { Anime as AnimeComponent } from "../../components/Anime";
 import { useParameters } from "../useParameters";
 import { useNavigate } from "react-router-dom";
-
-type Animes = {
-  data: Anime[];
-  pagination: number;
-  next: boolean;
-  total: number;
-};
+import { Animes } from "../../types/Animes";
 
 export const useAnimeList = () => {
   const [animeList, setAnimeList] = useState<Animes>({

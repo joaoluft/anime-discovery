@@ -19,7 +19,7 @@ export const AnimeDetails = () => {
       </Back>
       <Content>
         <Title>{anime?.title}</Title>
-        <Thumbnail src={anime?.images.webp.image_url} />
+        <Thumbnail draggable={false} src={anime?.images.webp.image_url} />
         <Synopsis>{anime?.synopsis}</Synopsis>
         <CharacterList id={Number(id)} />
       </Content>

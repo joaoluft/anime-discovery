@@ -9,7 +9,7 @@ type CharacterProps = {
 export const Character = ({image, name, id}: CharacterProps) => {
   return (
     <Container key={id}>
-      <Image src={image} alt={name} />
+      <Image draggable={false} src={image} alt={name} />
       <Name>{name}</Name>
     </Container>
   )

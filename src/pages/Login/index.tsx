@@ -19,7 +19,7 @@ export const Login = () => {
   return (
     <Main>
       <LeftContainer>
-        <LeftBackground src={background} />
+        <LeftBackground draggable={false} src={background} />
       </LeftContainer>
       <RightContainer>
         <FieldForm onSubmit={(e) => loginFormHandler(e)}>
@@ -31,7 +31,7 @@ export const Login = () => {
           </Paragraph>
         </FieldForm>
 
-        <PoweredBy src={rocketLogo} />
+        <PoweredBy draggable={false} src={rocketLogo} />
       </RightContainer>
     </Main>
   );

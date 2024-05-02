@@ -23,7 +23,7 @@ export const Anime = ({ id, thumbnail, rank, name, open }: AnimeProps) => {
 
   return (
     <Container key={id}>
-      <Image onClick={open} src={thumbnail} alt={name} />
+      <Image draggable={false} onClick={open} src={thumbnail} alt={name} />
       <Rank>#{rank}</Rank>
       <Informations>
         <Title>{name}</Title>

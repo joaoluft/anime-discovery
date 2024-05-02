@@ -11,7 +11,6 @@ export const App = () => {
       <Router>
         <Routes>
           <Route path="/" element={<Homepage />} />
-          <Route path="/profile" />
           <Route path="/login" element={<Login />} />
           <Route path="/anime/:id" element={<AnimeDetails />} />
           <Route path="*" />
