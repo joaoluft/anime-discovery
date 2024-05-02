@@ -1,14 +1,14 @@
 import { Container, Image, Name } from "./styles";
 
 type CharacterProps = {
-  key: string;
+  id: string;
   image: string;
   name: string;
 }
 
-export const Character = ({image, name, key}: CharacterProps) => {
+export const Character = ({image, name, id}: CharacterProps) => {
   return (
-    <Container key={key}>
+    <Container key={id}>
       <Image src={image} alt={name} />
       <Name>{name}</Name>
     </Container>

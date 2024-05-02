@@ -3,8 +3,8 @@ import { useLocalStorage } from "../useLocalStorage";
 import { useNavigate } from "react-router-dom";
 export const useLogin = () => {
   const { setLocalStorage } = useLocalStorage();
-  const [background, setBackground] = useState('');
-  const [name, setName] = useState('');
+  const [background, setBackground] = useState<string>("");
+  const [name, setName] = useState<string>("");
   const navigate = useNavigate();
 
   const loginFormHandler = (e: React.FormEvent<HTMLFormElement>) => {
@@ -20,7 +20,7 @@ export const useLogin = () => {
 
   useEffect(() => {
     import(
-      `./../../assets/Backgrounds/${Math.floor(Math.random() * 5) + 1}.webp`
+      /* @vite-ignore */ `./../../assets/Backgrounds/${Math.floor(Math.random() * 5) + 1}.webp`
     ).then((module) => {
       setBackground(module.default);
     });

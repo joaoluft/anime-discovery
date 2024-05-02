@@ -8,4 +8,8 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+
+  @media (max-width: 768px) {
+    padding: 32px 8px;
+  }
 `

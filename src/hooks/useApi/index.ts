@@ -17,9 +17,14 @@ export const useApi = () => {
         return await api.get(`/anime/${id}/characters`);
     }
 
+    const searchAnime = async (search: string) => {
+        return await api.get(`/anime?q=${search}`);
+    }
+
     return {
         getAnimeList,
         getAnimeDetails,
-        getCharacters
+        getCharacters,
+        searchAnime
     };
 };

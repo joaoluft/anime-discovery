@@ -63,10 +63,11 @@ export const useAnimeList = () => {
     return animeList?.data.map((anime) => (
       <AnimeComponent
         key={anime.mal_id}
+        id={anime.mal_id}
         name={anime.title}
         thumbnail={anime.thumbnail}
         rank={anime.rank}
-        onClick={() => navigate(`/anime/${anime.mal_id}`)}
+        open={() => navigate(`/anime/${anime.mal_id}`)}
       />
     ));
   };

@@ -4,13 +4,13 @@ import styled from "styled-components";
 export const LoginButton = styled(Button).attrs({
   variant: "contained",
   color: "secondary",
-})<ButtonProps>``;
+}) <ButtonProps>``;
 
 export const LoginTextField = styled(TextField).attrs({
   variant: "outlined",
   label: "Insira seu nome",
   color: "secondary",
-})<TextFieldProps>``;
+}) <TextFieldProps>``;
 
 export const Main = styled.main`
   display: flex;
@@ -26,6 +26,10 @@ export const LeftContainer = styled.div`
   flex-basis: 60%;
   overflow: hidden;
   box-shadow: 8px 0px 26px 0px rgba(0, 0, 0, 0.25);
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const LeftBackground = styled.img`
@@ -42,6 +46,10 @@ export const RightContainer = styled.div`
   gap: 24px;
   text-align: center;
   padding: 64px 0 42px 0;
+
+  @media (max-width: 768px) {
+    flex-basis: 100%;
+  }
 `;
 
 export const FieldForm = styled.form`
@@ -55,6 +63,10 @@ export const Title = styled.h1`
   padding-bottom: 24px;
   font-size: 2.5rem;
   font-weight: 500;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
 `;
 
 export const PoweredBy = styled.img`
