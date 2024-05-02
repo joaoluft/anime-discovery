@@ -19,7 +19,7 @@ export const useSearch = () => {
       }).catch((err) => {
         console.log(err)
       });
-    }, 800));
+    }, 500));
   }
 
   useEffect(() => {

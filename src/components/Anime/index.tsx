@@ -24,7 +24,7 @@ export const Anime = ({ id, thumbnail, rank, name, open }: AnimeProps) => {
   return (
     <Container key={id}>
       <Image draggable={false} onClick={open} src={thumbnail} alt={name} />
-      <Rank>#{rank}</Rank>
+      {rank && <Rank>#{rank}</Rank>}
       <Informations>
         <Title>{name}</Title>
         <LikeAction onClick={() => likeAnimeHandler(id)}>
