@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useState, Dispatch, SetStateAction } from "react";
-import { Filters } from "../../types/Filters";
+import { Filters } from "../../interfaces/Filters/iFilters";
 
 type FilterContextProps = {
   children: ReactNode;

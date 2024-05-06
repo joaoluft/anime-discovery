@@ -1,4 +1,4 @@
-export type Anime = {
+export interface Anime {
     mal_id: number
     thumbnail: string
     title: string
