@@ -1,4 +1,4 @@
-import { Anime } from "../Anime/iAnime"
+import { Anime } from "../IAnime"
 
 export interface Animes {
   data: Anime[];

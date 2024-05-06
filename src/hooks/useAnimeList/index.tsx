@@ -1,6 +1,6 @@
 import { useApi } from "../useApi";
 import { useContext, useEffect, useState } from "react";
-import { Anime } from "../../interfaces/Anime/iAnime";
+import { Anime } from "../../interfaces/IAnime";
 import { Anime as AnimeComponent } from "../../components/Anime";
 import { useParameters } from "../useParameters";
 import { useNavigate } from "react-router-dom";
