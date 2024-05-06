@@ -1,10 +1,10 @@
 import { useApi } from "../useApi";
 import { useContext, useEffect, useState } from "react";
-import { Anime } from "../../types/Anime";
+import { Anime } from "../../interfaces/Anime/iAnime";
 import { Anime as AnimeComponent } from "../../components/Anime";
 import { useParameters } from "../useParameters";
 import { useNavigate } from "react-router-dom";
-import { Animes } from "../../types/Animes";
+import { Animes } from "../../interfaces/Animes/iAnimes";
 import { FilterContext } from "../../contexts/FilterContext";
 import { NotFoundAnimes } from "../../components/NotFoundAnimes";
 

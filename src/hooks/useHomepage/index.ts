@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocalStorage } from "../useLocalStorage";
 import { useNavigate } from "react-router-dom";
-import { User } from "../../types/User";
+import { User } from "../../interfaces/User/iUser";
 
 export const useHomepage = () => {
   const { getLocalStorage } = useLocalStorage();

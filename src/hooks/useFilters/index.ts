@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { useParameters } from "../useParameters"
 import { FilterContext } from "../../contexts/FilterContext";
-import { Filters } from "../../types/Filters";
+import { Filters } from "../../interfaces/Filters/iFilters";
 
 export const useFilters = () => {
   const { setParam, removeParam } = useParameters();

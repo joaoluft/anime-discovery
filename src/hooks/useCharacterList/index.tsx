@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useApi } from "../useApi";
-import { Character } from "./../../types/Character";
+import { Character } from "../../interfaces/Character/iCharacter";
 import { Character as CharacterComponent } from "../../components/Character";
 import { v4 as uuidv4 } from "uuid";
 
