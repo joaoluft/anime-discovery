@@ -1,7 +1,7 @@
-import { Anime } from "../IAnime"
+import { IAnime } from "../IAnime"
 
-export interface Animes {
-  data: Anime[];
+export interface IAnimes {
+  data: IAnime[];
   pagination: number;
   total: number;
 };

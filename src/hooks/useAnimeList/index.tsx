@@ -1,17 +1,17 @@
 import { useApi } from "../useApi";
 import { useContext, useEffect, useState } from "react";
-import { Anime } from "../../interfaces/IAnime";
+import { IAnime } from "../../interfaces/IAnime";
 import { Anime as AnimeComponent } from "../../components/Anime";
 import { useParameters } from "../useParameters";
 import { useNavigate } from "react-router-dom";
-import { Animes } from "../../interfaces/Animes/iAnimes";
+import { IAnimes } from "../../interfaces/IAnimes";
 import { FilterContext } from "../../contexts/FilterContext";
 import { NotFoundAnimes } from "../../components/NotFoundAnimes";
 
 export const useAnimeList = () => {
   const { getParam, setParam } = useParameters();
 
-  const [animeList, setAnimeList] = useState<Animes>({
+  const [animeList, setAnimeList] = useState<IAnimes>({
     data: [],
     pagination: 1,
     total: 0, // Total de páginas
@@ -38,7 +38,7 @@ export const useAnimeList = () => {
     getAnimeList(pagination, typeParam, orderParam, ratingParam)
       .then((res) => {
         setLoaded(true);
-        const listedAnimes = res?.data?.data?.map((animeData: Anime) => ({
+        const listedAnimes = res?.data?.data?.map((animeData: IAnime) => ({
           mal_id: animeData.mal_id,
           thumbnail: animeData.images.webp.image_url,
           title: animeData.title,

@@ -1,4 +1,4 @@
-export interface Anime {
+export interface IAnime {
     mal_id: number
     thumbnail: string
     title: string
