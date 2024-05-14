@@ -1,16 +1,16 @@
 import { createContext, ReactNode, useState, Dispatch, SetStateAction } from "react";
-import { Filters } from "../../interfaces/Filters/iFilters";
+import { IFilters } from "../../interfaces/IFilters";
 
 type FilterContextProps = {
   children: ReactNode;
 };
 
 type FilterContextTypes = {
-  filters: Filters;
-  setFilters: Dispatch<SetStateAction<Filters>>;
+  filters: IFilters;
+  setFilters: Dispatch<SetStateAction<IFilters>>;
 };
 
-const defaultFilters: Filters = {
+const defaultFilters: IFilters = {
   type: "",
   order: "",
   rating: "",
@@ -22,7 +22,7 @@ export const FilterContext = createContext<FilterContextTypes>({
 });
 
 export const FilterContextProvider = ({ children }: FilterContextProps) => {
-  const [filters, setFilters] = useState<Filters>(defaultFilters);
+  const [filters, setFilters] = useState<IFilters>(defaultFilters);
 
   return (
     <FilterContext.Provider value={{ filters, setFilters }}>

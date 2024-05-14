@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useApi } from "../useApi";
-import { Character } from "../../interfaces/ICharacter";
+import { ICharacter } from "../../interfaces/ICharacter";
 import { Character as CharacterComponent } from "../../components/Character";
 import { v4 as uuidv4 } from "uuid";
 
@@ -23,7 +23,7 @@ export const useCharacterList = (id: number) => {
   const renderCharacterList = () => {
     return characterList
       .slice(0, viewMore ? characterList.length : 8)
-      .map((character: Character) => (
+      .map((character: ICharacter) => (
         <CharacterComponent
           id={uuidv4()}
           image={character?.character?.images?.webp?.image_url}

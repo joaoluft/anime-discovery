@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { useParameters } from "../useParameters"
 import { FilterContext } from "../../contexts/FilterContext";
-import { Filters } from "../../interfaces/Filters/iFilters";
+import { IFilters } from "../../interfaces/IFilters";
 
 export const useFilters = () => {
   const { setParam, removeParam } = useParameters();
@@ -17,7 +17,7 @@ export const useFilters = () => {
       removeParam(filter);
     }
 
-    setFilters((prevFilters: Filters) => ({ ...prevFilters, [filter]: value }));
+    setFilters((prevFilters: IFilters) => ({ ...prevFilters, [filter]: value }));
   };
 
   return { setFilterHandler }

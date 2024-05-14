@@ -1,4 +1,4 @@
-export interface Character {
+export interface ICharacter {
   character: {
     mal_id: number;
     name: string;
